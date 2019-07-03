@@ -12,14 +12,12 @@ public class StudentMarksTest {
     @Before
     public void setUp()
     {
-        System.out.println("Before");
         marks=new StudentMarks();
 
     }
     @After
     public void tearDown()
     {
-        System.out.println("After");
         marks=null;
     }
     @Test

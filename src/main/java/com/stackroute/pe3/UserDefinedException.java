@@ -1,24 +1,29 @@
 package com.stackroute.pe3;
-
-public class UserDefinedException extends Throwable {
-    public UserDefinedException(String str) {
+//This is used to throw the userdefined exceptions.
+public class UserDefinedException {
+    public UserDefinedException() {
     }
-    public static String main(String s) {
-        if(s==null)
-            return "Error";
+    public static String main(int number) {
+        String message = "";
         try {
-            throw new UserDefinedException(s);
-        }
-        catch(Exception e) {
-                s=s;
-            System.out.println(s);
-        throw new UserDefinedException(s);
+            //This is used to print the message.
+            message = "Exception raised when the number is less than zero";
+            if (number < 10)
+            {
+                throw new Exception(message);
             }
+        }
+        //Catches the exception
+        catch (Exception e)
+        {
+            message = "Catch block";
+        }
+        //Finally block
         finally {
-            s=s+" This is finally clause.";
-        return s;
+            message = "This is finally block";
         }
 
+        return message;
     }
 }
 

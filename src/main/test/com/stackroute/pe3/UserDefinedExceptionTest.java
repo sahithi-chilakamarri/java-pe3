@@ -8,30 +8,24 @@ import static com.stackroute.pe3.UserDefinedException.main;
 import static org.junit.Assert.*;
 
 public class UserDefinedExceptionTest {
-    public UserDefinedException exc;
+    public UserDefinedException userDefinedException;
+
     @Before
-    public void setUp()
-    {
-        System.out.println("Before");
-        exc=new UserDefinedException("Sahithi");
+    public void setUp() {
+        userDefinedException = new UserDefinedException();
 
     }
+
     @After
-    public void tearDown()
-    {
-        System.out.println("After");
-        exc=null;
+    public void tearDown() {
+        userDefinedException = null;
     }
+
     @Test
-    public void givenclassShouldThrowException(){
-        String result=main("string");
-        assertEquals("string This is finally clause.",result);
+    public void givenclassShouldThrowException() {
+        String result = main(8);
+        assertEquals("This is finally block", result);
     }
-    @Test
-    public void givenClassShouldNotReachToFinallyStatement(){
-            String result=main(null);
-            assertEquals("Error",result);
-        }
-    }
+}
 
 

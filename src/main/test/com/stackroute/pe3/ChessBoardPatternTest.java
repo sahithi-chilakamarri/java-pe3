@@ -4,16 +4,16 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import static com.stackroute.pe3.Chess.chess;
+import static com.stackroute.pe3.ChessBoardPattern.chessBoardPattern;
 import static org.junit.Assert.*;
 
-public class ChessTest {
-    public Chess matrix;
+public class ChessBoardPatternTest {
+    public ChessBoardPattern matrix;
     @Before
     public void setUp()
     {
         System.out.println("Before");
-        matrix=new Chess();
+        matrix=new ChessBoardPattern();
 
     }
     @After
@@ -24,7 +24,10 @@ public class ChessTest {
     }
     @Test
     public void givenMultiDimenasionalArrayShouldReturnChessPattern(){
-        String str=chess(8,8);
+        //arrange
+        //act
+        String str= chessBoardPattern(8,8);
+        //assert
         assertEquals("WW|BB|WW|BB|WW|BB|WW|BB|\n" +
                 "BB|WW|BB|WW|BB|WW|BB|WW|\n" +
                 "WW|BB|WW|BB|WW|BB|WW|BB|\n" +
@@ -37,15 +40,18 @@ public class ChessTest {
     }
     @Test
     public void givenRowNotEqualsToColumnShouldReturnError(){
-        String str=chess(8,7);
+        //arrange
+        //act
+        String str= chessBoardPattern(8,7);
+        //assert
         assertEquals("error",str);
     }
     @Test
-    public void givenRowAndColumAreZeroShouldReturnError(){
-        String str=chess(0,7);
+    public void givenRowAndColumnAreZeroShouldReturnError(){
+        //arrange
+        //act
+        String str= chessBoardPattern(0,7);
+        //assert
         assertEquals("error",str);
     }
-
-
-
 }

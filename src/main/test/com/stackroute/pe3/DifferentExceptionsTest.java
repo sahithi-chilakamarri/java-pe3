@@ -2,47 +2,54 @@ package com.stackroute.pe3;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import static com.stackroute.pe3.Exceptions.arrayHandling;
+import static com.stackroute.pe3.DifferentExceptions.exceptionHandling;
 import static org.junit.Assert.*;
 
-public class ExceptionsTest {
-    public Exceptions exception;
+public class DifferentExceptionsTest {
+    public DifferentExceptions exception;
     @Before
     public void setUp()
     {
-        System.out.println("Before");
-        exception=new Exceptions();
+        exception=new DifferentExceptions();
 
     }
     @After
     public void tearDown()
     {
-        System.out.println("After");
         exception=null;
     }
     @Test
     public void givenArraySizeShouldReturnException(){
+        //arrange
         int[] array={1,2,3,4,5};
-        String result=arrayHandling(-4,array,exception);
+        //act
+        String result= exceptionHandling(-4,array,exception);
+        //assert
         assertEquals("This is NegativeArraySizeException",result);
     }
     @Test
     public void givenArraySizeShouldReturnIndexException(){
+        //arrange
         int[] array={1,2,3,4,5};
-        String result=arrayHandling(3,array,exception);
+        //act
+        String result= exceptionHandling(3,array,exception);
+        //assert
         assertEquals("This is IndexOutOfBoundsException",result);
     }
     @Test
     public void givenArraySizeShouldReturnNullException(){
+        //arrange
         int[] array={1,2,3,4,5};
         exception=null;
-        String result=arrayHandling(5,array,exception);
+        //act
+        String result= exceptionHandling(5,array,exception);
+        //assert
         assertEquals("This is NullPointerException",result);
     }
     @Test
     public void givenArraySizeShouldNotReturnError(){
         int[] array={1,2,3,4,5};
-        String result=arrayHandling(5,array,exception);
+        String result= exceptionHandling(5,array,exception);
         assertEquals("",result);
     }
 }
